@@ -35,7 +35,6 @@ export default {
     };
   },
   computed: {
-    // Ajoute une classe à la navbar selon la route et si on a scrollé
     navBarClass() {
       return this.$route.path === '/' && !this.isScrolled
         ? 'navbar-transparent'
@@ -43,7 +42,6 @@ export default {
     },
   },
   mounted() {
-    // Gestion du scroll pour changer la classe de la navbar
     window.addEventListener('scroll', this.handleScroll);
   },
   beforeDestroy() {
@@ -65,7 +63,7 @@ li {
 
 .navbar {
   width: 100%;
-  height: 100px; /* Hauteur de la navbar */
+  height: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -77,8 +75,8 @@ li {
 
 .nav-link {
   color: white;
-  text-decoration: none; /* Enlève le soulignement */
-  transition: color 0.3s ease; /* Ajoute une transition pour le survol */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 ul li a:hover {
@@ -119,9 +117,9 @@ ul li a:hover {
 }
 
 .separator {
-  height: 50px; /* Ajuster la hauteur de la barre */
-  width: 2px; /* Épaisseur de la barre */
-  background-color: #fff; /* Couleur de la barre */
-  margin: 0 20px; /* Espacement autour de la barre */
+  height: 50px;
+  width: 2px;
+  background-color: #fff;
+  margin: 0 20px;
 }
 </style>
