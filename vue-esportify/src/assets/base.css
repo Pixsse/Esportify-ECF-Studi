@@ -1,4 +1,5 @@
 /* color palette from <https://github.com/vuejs/theme> */
+/*
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -20,8 +21,10 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
-
+*/
 /* semantic color variables for this project */
+
+/*
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
@@ -83,4 +86,110 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gagalin');
+
+
+/* Purple Color */
+.purple-text-color-1 {
+  color: #7000FF;
+}
+
+.purple-text-color-2 {
+  color: #5A3A84;
+}
+
+.purple-text-color-3 {
+  color: #5604BE;
+}
+
+.purple-background-color-1 {
+  background-color: #7000FF;
+}
+
+.purple-background-color-2 {
+  background-color: #5A3A84;
+}
+
+.purple-background-color-3 {
+  background-color: #5604BE;
+}
+
+/* White and Black color */
+.white-text-color-1 {
+  color: #FFFFFF;
+}
+
+.grey-text-color-1 {
+  color: #979797;
+}
+
+.black-text-color-1 {
+  color: #040404;
+}
+
+.white-background-color-1 {
+  background-color: #FFFFFF;
+}
+
+.grey-background-color-1 {
+  background-color: #979797;
+}
+
+.black-background-color-1 {
+  background-color: #040404;
+}
+
+.transparent-background {
+  background-color: transparent;
+}
+
+/* Blue color */
+.blue-text-color-1 {
+  color: #50AED6;
+}
+
+.blue-background-color-1 {
+  background-color: #50AED6;
+}
+
+/*------*/
+/* Font */
+.font-gagalin {
+  font-family: Gagalin;         /* Gagalin */
+  font-weight: 100;
+}
+
+.font-regular-regular {         /* Inter */
+  font-family: Inter;
+  font-weight: 400;
+}
+
+.font-oswald-light {            /* Oswald*/
+  font-family: Oswald;
+  font-weight: 300;
+}
+
+.font-oswald-regular {
+  font-family: Oswald;
+  font-weight: 400;
+}
+
+.font-oswald-medium {
+  font-family: Oswald;
+  font-weight: 500;
+}
+
+.font-oswald-semibold {
+  font-family: Oswald;
+  font-weight: 600;
+}
+
+.font-oswald-bold {
+  font-family: Oswald;
+  font-weight: 700;
 }
