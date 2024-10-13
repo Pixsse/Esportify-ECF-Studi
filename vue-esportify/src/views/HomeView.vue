@@ -1,5 +1,5 @@
 <template>
-<section class="video-section">
+<section class="video-section container">
     <video autoplay muted loop id="background-video">
       <source src="@/assets/videos/Gaming-Video-01.mp4" type="video/mp4">
     </video>
