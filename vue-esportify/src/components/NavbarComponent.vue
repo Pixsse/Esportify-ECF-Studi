@@ -19,7 +19,7 @@
       </ul>
 
       <div class="button-nav-right">
-        <button class="login-btn font-oswald-bold">Login</button>
+        <button @click="login" class="login-btn font-oswald-bold">Login</button>
       </div>
     </div>
 
@@ -29,6 +29,17 @@
 
 <script>
 export default {
+
+  methods: {
+    login() {
+      this.$router.push('/login')
+    },
+
+    handleScroll() {
+      this.isScrolled = window.scrollY > 50;
+    },
+  },
+
   data() {
     return {
       isScrolled: false,
@@ -46,11 +57,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      this.isScrolled = window.scrollY > 50;
-    },
   },
 };
 </script>
