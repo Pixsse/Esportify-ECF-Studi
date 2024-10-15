@@ -17,22 +17,22 @@ const db = createConnection({
 
 db.connect((err) => {
     if (err) {
-        console.error('Erreur de connexion à la base de données :', err);
+        console.error('Database connection error:', err);
         return;
     }
-    console.log('Connecté à la base de données MySQL');
+    console.log('Connected to MySQL database');
 });
 
 app.get('/api/users', (req, res) => {
     const query = 'SELECT * FROM users';
     db.query(query, (err, results) => {
         if (err) {
-            return res.status(500).send('Erreur lors de la récupération des utilisateurs');
+            return res.status(500).send('Error recovering users');
         }
         res.json(results);
     });
 });
 
 app.listen(port, () => {
-    console.log(`Serveur back-end démarré sur le port ${port}`);
+    console.log(`Backend server started on port ${port}`);
 });
