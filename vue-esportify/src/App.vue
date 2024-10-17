@@ -3,7 +3,7 @@
     <NavbarComponent />
   </header>
 
-  <main style="margin-top: 150px;">
+  <main>
     <RouterView />
   </main>
 

@@ -37,18 +37,11 @@ section {
 }
 
 .video-section {
-    width: 100%;
+  position: relative;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  color: white;
-  scroll-snap-align: start;
-  scroll-behavior: smooth;
+  overflow: hidden; 
   z-index: 1;
   border-bottom: 4px solid #7000FF;
-  display: block;
 }
 
 
@@ -59,7 +52,7 @@ section {
 }
 
 .event-section {
-    position: relative; 
+  position: relative; 
 }
 
 .video-background-container {
