@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg black-background-color-1 fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top" :class="{'navbar-transparent': isHomePage && !hasScrolled, 'navbar-colored': hasScrolled}">
   <div class="container-fluid">
     
     <h1 class="home-title white-text-color-1 font-gagalin">
@@ -31,27 +31,32 @@
 export default {
   data() {
     return {
-      isScrolled: false,
+      hasScrolled: false,
+      isHomePage: true
     };
   },
-  computed: {
-    navBarClass() {
-      return this.$route.path === '/' && !this.isScrolled
-        ? 'navbar-transparent'
-        : 'navbar-colored';
-    },
-  },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    if (this.$route.name === '/') 
+    {
+      this.isHomePage = true;
+    } 
+    else 
+    {
+      this.isHomePage = false;
+    }
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
-      this.isScrolled = window.scrollY > 50;
-    },
-  },
+      const scrollPosition = window.scrollY;
+      const threshold = window.innerHeight * 0.2;
+
+      this.hasScrolled = scrollPosition > threshold;
+    }
+  }
 };
 </script>
 
@@ -62,21 +67,27 @@ li {
 }
 
 .navbar {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 20px;
-  border-bottom: 4px solid;
-  border-color: #7000FF;
-  z-index: 1000;
+
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+.navbar-colored {
+  border-bottom: 4px solid;
+  border-color: #7000FF;
+  background-color: #040404;
+  transition: background-color 0.3s ease-out;
+}
+
+.navbar-transparent {
+  border-color: transparent;
+  background-color: transparent;
+  border-bottom: 4px solid;
+  transition: background-color 0.3s ease-in;
 }
 
 ul li a:hover {
@@ -103,7 +114,7 @@ ul li a:hover {
   border: none;
   cursor: pointer;
   font-size: 21px;
-  border-radius: 11px;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
