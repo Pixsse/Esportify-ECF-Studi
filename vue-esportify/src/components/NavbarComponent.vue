@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg fixed-top" :class="{'navbar-transparent': isHomePage && !hasScrolled, 'navbar-colored': hasScrolled}">
+<nav class="navbar navbar-expand-lg fixed-top" :class="[{ 'navbar-transparent': isHomePage && !hasScrolled }, 'navbar-colored']">>
   <div class="container-fluid">
     
     <h1 class="home-title white-text-color-1 font-gagalin">
@@ -19,7 +19,7 @@
       </ul>
 
       <div class="button-nav-right">
-        <button class="login-btn font-oswald-bold">Login</button>
+        <button class="btn btn-primary btn-lg font-oswald-bold login-btn">Login</button>
       </div>
     </div>
 
@@ -32,22 +32,20 @@ export default {
   data() {
     return {
       hasScrolled: false,
-      isHomePage: true
+      isHomePage: false,
     };
   },
   mounted() {
-    if (this.$route.name === '/') 
-    {
-      this.isHomePage = true;
-    } 
-    else 
-    {
-      this.isHomePage = false;
-    }
+    this.checkIfHomePage();
     window.addEventListener("scroll", this.handleScroll);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
+  },
+  watch: {
+    $route() {
+      this.checkIfHomePage();
+    },
   },
   methods: {
     handleScroll() {
@@ -55,19 +53,19 @@ export default {
       const threshold = window.innerHeight * 0.2;
 
       this.hasScrolled = scrollPosition > threshold;
-    }
-  }
+    },
+    checkIfHomePage() {
+      this.isHomePage = this.$route.path === '/';
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 
 li {
   text-decoration: none;
-}
-
-.navbar {
-
 }
 
 .nav-link {
@@ -84,9 +82,9 @@ li {
 }
 
 .navbar-transparent {
+  border-bottom: 4px solid;
   border-color: transparent;
   background-color: transparent;
-  border-bottom: 4px solid;
   transition: background-color 0.3s ease-in;
 }
 
@@ -133,4 +131,11 @@ ul li a:hover {
   background-color: #fff;
   margin: 0 20px;
 }
+
+@media (max-width: 576px) {
+  .navbar-transparent {
+    background-color: #040404;
+  }
+}
+
 </style>
