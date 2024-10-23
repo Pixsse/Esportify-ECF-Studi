@@ -46,6 +46,7 @@
   
 <script>
 import CarouselHomeComponent from '@/components/home/Carousel-Home-Component.vue';
+import { autoScrollToTop } from '@/utils/utils';
 
 export default {
   name: 'Home',
@@ -56,9 +57,11 @@ export default {
   methods: {
     Login() {
       this.$router.push('/sign-up')
+      autoScrollToTop();
     },
     Event() {
       this.$router.push('/event')
+      autoScrollToTop();
     },
   },
 }

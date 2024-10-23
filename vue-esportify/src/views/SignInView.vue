@@ -37,7 +37,7 @@
               <div class="text-left mt-3">
                 <p class="font-regular-regular">
                   Don't have an account? 
-                  <router-link class="signin-link" to="/sign-up">Sign Up</router-link>
+                  <router-link @click="goToTop" class="signin-link" to="/sign-up">Sign Up</router-link>
                 </p>
               </div>
             </div>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import { autoScrollToTop } from '@/utils/utils';
+
 export default {
   name: 'SignIn',
   data() {
@@ -61,8 +63,10 @@ export default {
   },
   methods: {
     submitForm() {
-      // Handle sign-in logic here
       console.log("Form submitted:", this.form);
+    },
+    goToTop() {
+      autoScrollToTop();
     }
   }
 };

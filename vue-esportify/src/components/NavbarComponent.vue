@@ -3,7 +3,7 @@
   <div class="container-fluid">
     
     <h1 class="home-title white-text-color-1 font-gagalin">
-      <router-link class="nav-link" to="/">ESPORTIFY</router-link>
+      <router-link @click="goToTop" class="nav-link" to="/">ESPORTIFY</router-link>
     </h1>
     
     <div class="separator"></div>
@@ -14,7 +14,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-          <li class="nav-item font-oswald-bold"><router-link class="nav-link" to="/event">Event</router-link></li>
+          <li class="nav-item font-oswald-bold"><router-link @click="goToTop" class="nav-link" to="/event">Event</router-link></li>
           <li class="nav-item font-oswald-bold"><a class="nav-link" href="mailto:esportify@example.com">Contact</a></li>
       </ul>
 
@@ -28,6 +28,9 @@
 </template>
 
 <script>
+
+import { autoScrollToTop } from '@/utils/utils';
+
 export default {
   data() {
     return {
@@ -59,7 +62,12 @@ export default {
     },
     Login() {
       this.$router.push('/sign-in')
+      autoScrollToTop();
     },
+    goToTop() {
+      autoScrollToTop();
+    },
+
   },
 };
 </script>

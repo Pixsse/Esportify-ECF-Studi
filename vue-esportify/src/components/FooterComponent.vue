@@ -3,9 +3,9 @@
       <div class="footer-container">
         
         <div class="footer-links font-oswald-light">
-          <router-link to="/">Home</router-link>
-          <router-link to="/event">Event</router-link>
-          <router-link to="/login">Login</router-link>
+          <router-link @click="goToTop" to="/">Home</router-link>
+          <router-link @click="goToTop" to="/event">Event</router-link>
+          <router-link @click="goToTop" to="/sign-in">Login</router-link>
           <a href="mailto:esportify@example.com">Contact</a>
         </div>
   
@@ -16,11 +16,21 @@
     </div>
 </template>
   
-  <script>
-  export default {
-    name: "FooterComponent",
-  };
-  </script>
+<script>
+
+import { autoScrollToTop } from '@/utils/utils';
+
+export default {
+  name: "FooterComponent",
+
+  methods: {
+    goToTop() {
+      autoScrollToTop();
+    }
+  }
+};
+  
+</script>
   
   <style scoped>
 

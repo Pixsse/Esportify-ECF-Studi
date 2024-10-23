@@ -193,3 +193,15 @@ body {
   font-family: Oswald;
   font-weight: 700;
 }
+
+/* Top Page */
+
+.GoToTopPage {
+  behavior: 'smooth';
+  top: 0;
+}
+
+.GoToTopPage::click {
+  top: 0;
+  behavior: 'smooth';
+}

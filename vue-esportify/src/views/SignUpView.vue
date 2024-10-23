@@ -6,10 +6,12 @@
           <div>
             <div class="card-body p-5">
 
+              <!-- Sign Up Title -->
               <h2 class="font-oswald-bold display-4 purple-text-color-1 text-center">Sign Up</h2>
               <div class="sign-separator mx-auto"></div>
               
               <form @submit.prevent="submitForm">
+                <!-- Username -->
                 <div class="mb-3 font-oswald-regular">
                   <label for="username" class="form-label">Username</label>
                   <input
@@ -21,6 +23,7 @@
                     required
                   />
                 </div>
+                <!-- Email -->
                 <div class="mb-3 font-oswald-regular">
                   <label for="email" class="form-label">Email</label>
                   <input
@@ -32,6 +35,7 @@
                     required
                   />
                 </div>
+                <!-- Password -->
                 <div class="mb-3 font-oswald-regular">
                   <label for="password" class="form-label">Password</label>
                   <input
@@ -43,6 +47,7 @@
                     required
                   />
                 </div>
+                <!-- Confirm Password -->
                 <div class="mb-3 font-oswald-regular">
                   <label for="confirmPassword" class="form-label">Confirm Password</label>
                   <input
@@ -54,12 +59,14 @@
                     required
                   />
                 </div>
+                <!-- Sign Up Button -->
                 <button type="submit" class="btn signup-btn w-100 mt-3 font-oswald-bold">Sign Up</button>
               </form>
+              <!-- Already have an account  -->
               <div class="text-left mt-3">
                 <p class="font-regular-regular">
                   Already have an account? 
-                  <router-link class="signup-link" to="/sign-in">Sign In</router-link>
+                  <router-link @click="goToTop" class="signup-link" to="/sign-in">Sign In</router-link>
                 </p>
               </div>
             </div>
@@ -71,6 +78,8 @@
 </template>
   
 <script>
+import { autoScrollToTop } from '@/utils/utils';
+
   export default {
 
     name: 'SignUp',
@@ -93,6 +102,9 @@
         }
  
         console.log("Form submitted:", this.form);
+      },
+      goToTop() {
+        autoScrollToTop();
       }
     }
   };
