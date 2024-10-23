@@ -19,7 +19,7 @@
       </ul>
 
       <div class="button-nav-right">
-        <button class="btn btn-primary btn-lg font-oswald-bold login-btn">Login</button>
+        <button @click="Login" class="btn btn-lg font-oswald-bold login-btn">Login</button>
       </div>
     </div>
 
@@ -56,6 +56,9 @@ export default {
     },
     checkIfHomePage() {
       this.isHomePage = this.$route.path === '/';
+    },
+    Login() {
+      this.$router.push('/sign-in')
     },
   },
 };
@@ -109,7 +112,8 @@ ul li a:hover {
   color: #ffffff;
   padding: 5px 35px;
   margin-right: 20px;
-  border: none;
+  border: 2px solid;
+  border-color: #7000FF;
   cursor: pointer;
   font-size: 21px;
   border-radius: 8px;
@@ -118,6 +122,7 @@ ul li a:hover {
 
 .login-btn:hover {
   background-color: #ffffff;
+  border-color: #ffffff;
   color: #7000FF;
 }
 

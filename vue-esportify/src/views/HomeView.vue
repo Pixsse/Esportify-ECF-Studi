@@ -11,8 +11,8 @@
           <p class="font-regular-regular lead">Ready to step into the arena? Join us today!</p>
           <p class="font-regular-regular mb-5"></p>
           <!-- Buttons -->
-          <button class="btn btn-primary btn-lg font-oswald-bold mr-2 signup-btn">Sign Up</button>
-          <button class="btn btn-secondary btn-lg font-oswald-bold event-btn">Event</button>
+          <button @click="Login" class="btn btn-lg font-oswald-bold mr-2 signup-btn">Sign Up</button>
+          <button @click="Event" class="btn btn-lg font-oswald-bold event-btn">Event</button>
         </div>
       </div>
     </div>
@@ -52,7 +52,15 @@ export default {
 
   components: {
     CarouselHomeComponent,
-  }
+  },
+  methods: {
+    Login() {
+      this.$router.push('/sign-up')
+    },
+    Event() {
+      this.$router.push('/event')
+    },
+  },
 }
 </script>
   
