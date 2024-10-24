@@ -1,19 +1,33 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
-const PORT = 3000;
+const mysql = require('mysql2');
 
-mongoose.connect('mongodb://localhost:27017/ma_base', { useNewUrlParser: true, useUnifiedTopology: true });
-
-const Item = mongoose.model('Item', new mongoose.Schema({
-  name: String
-}));
-
-app.get('/api/items', async (req, res) => {
-  const items = await Item.find();
-  res.json(items);
+// Config DB
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'esportify'
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// DB Connection
+connection.connect((err) => {
+  if (err) {
+    console.error('Database connection error :', err);
+    return;
+  }
+  console.log('Connected to MySQL database.');
 });
+
+// DB Request
+connection.query('SELECT * FROM users', (err, results) => {
+  if (err) {
+    console.error('Error during query execution :', err);
+    return;
+  }
+  console.log('Query results :', results);
+});
+
+// Close
+connection.end();
+
+// INSERT INTO users (email, username, password, user_type) 
+// VALUES ('admin@example.com', 'adminUser', 'password-test-1-234', 'admin');

@@ -40,8 +40,4 @@
   object-fit: cover;
 }
 
-.carousel-padding{
-  padding: 50px;
-}
-
 </style>
